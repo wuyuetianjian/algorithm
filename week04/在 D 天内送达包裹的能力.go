@@ -26,11 +26,11 @@ func GetMax (m, n int) int{
 func MidCheck(weights []int, days int, mid int) bool{
     x, num := 0, 1
     for _, v := range weights {
-        if x + v > mid {
-            x = 0
+        x = x + v
+        if x > mid {
+            x = v
             num ++
         }
-        x = x + v
     }
     return num <= days
 }
